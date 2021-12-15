@@ -38,17 +38,9 @@ export const CreateVendor = async (req: Request, res: Response, next: NextFuncti
     rating: 0,
     serviceAvailable: false,
     coverImages: [],
+    foods: [],
   });
-  return res.json({
-    name,
-    address,
-    pincode,
-    foodType,
-    email,
-    password,
-    ownerName,
-    phone,
-  });
+  return res.json(createdVendor);
 };
 
 export const GetVendors = async (req: Request, res: Response, next: NextFunction) => {
