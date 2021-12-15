@@ -15,7 +15,14 @@ import express, { Request, Response, NextFunction } from "express";
 //   RequestOtp,
 //   VerifyOffer,
 // } from "../controllers";
-import { CustomerSignUp, CustomerVerify, CustomerLogin, RequestOtp } from "../controllers";
+import {
+  CustomerSignUp,
+  CustomerVerify,
+  CustomerLogin,
+  RequestOtp,
+  GetCustomerProfile,
+  EditCustomerProfile,
+} from "../controllers";
 import { Authenticate } from "../middlewares";
 import { Offer } from "../models/Offer";
 
@@ -31,8 +38,8 @@ router.put("/verify", CustomerVerify);
 
 router.get("/otp", RequestOtp);
 
-// router.get("/profile", GetCustomerProfile);
-// router.patch("/profile", EditCustomerProfile);
+router.get("/profile", GetCustomerProfile);
+router.put("/profile", EditCustomerProfile);
 
 // router.post("/cart", AddToCart);
 // router.get("/cart", GetCart);
