@@ -15,7 +15,7 @@ import express, { Request, Response, NextFunction } from "express";
 //   RequestOtp,
 //   VerifyOffer,
 // } from "../controllers";
-import { CustomerSignUp, CustomerVerify } from "../controllers";
+import { CustomerSignUp, CustomerVerify, CustomerLogin, RequestOtp } from "../controllers";
 import { Authenticate } from "../middlewares";
 import { Offer } from "../models/Offer";
 
@@ -23,13 +23,13 @@ const router = express.Router();
 
 router.post("/signup", CustomerSignUp);
 
-// router.post("/login", CustomerLogin);
+router.post("/login", CustomerLogin);
 
 router.use(Authenticate);
 
-router.patch("/verify", CustomerVerify);
+router.put("/verify", CustomerVerify);
 
-// router.get("/otp", RequestOtp);
+router.get("/otp", RequestOtp);
 
 // router.get("/profile", GetCustomerProfile);
 // router.patch("/profile", EditCustomerProfile);
