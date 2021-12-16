@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, Model } from "mongoose";
 
 interface VendorDoc extends Document {
   name: string;
-  ownerName: String;
+  ownerName: string;
   foodType: [string];
   pincode: string;
   address: string;
@@ -14,7 +14,10 @@ interface VendorDoc extends Document {
   coverImages: [string];
   rating: number;
   foods: any;
+  lat: number;
+  lng: number;
 }
+
 const VendorSchema = new Schema(
   {
     name: { type: String, required: true },
@@ -35,6 +38,8 @@ const VendorSchema = new Schema(
         ref: "food",
       },
     ],
+    lat: { type: Number },
+    lng: { type: Number },
   },
   {
     toJSON: {
